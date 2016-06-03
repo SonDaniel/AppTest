@@ -1,5 +1,5 @@
-var express = require('express');
-var app = express();
+var app = require('express')();
+var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var port = process.env.PORT || 8080;
@@ -22,6 +22,6 @@ io.on('connection', function(socket){
 });
 
 
-app.listen(port, function(){
-	console.log('Our app is running on http://localhost:' + port);
+http.listen(port, function(){
+	console.log('The server is running on http://localhost:' + port);
 });
